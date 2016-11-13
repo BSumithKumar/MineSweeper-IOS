@@ -50,10 +50,18 @@ withCompletionCallback: (void (^)(Boolean aSuccess, NSArray* aBoardCells)) aComp
            withCallback : (void (^)(NSError* aError, NSArray* aCellsToOpen)) aCompletionCallback;
 
 
+-(void) flagCellWithRow : (NSInteger) aCellRow Column : (NSInteger) aCellCol flagState:(BOOL) aState;
+
 // get the number of rows
 -(NSInteger) getNumberOfRows;
 
 // get the number of columns
 -(NSInteger) getNumberOfColumns;
+
+// returns the number of mines
+-(NSInteger) getNumberOfMines;
+
+// returns the number of flags
+-(NSInteger) getNumberOfFlagedCells;
 
 @end

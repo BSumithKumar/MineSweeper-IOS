@@ -11,6 +11,7 @@
 @protocol CollectionViewDelegate <NSObject>
 
 -(void) onCollectionViewSelected:(NSInteger) rowNum Column: (NSInteger) colNum;
+-(void) onCollectionViewLongPress:(NSInteger) rowNum Column: (NSInteger) colNum;
 
 @end
 

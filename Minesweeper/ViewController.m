@@ -21,6 +21,10 @@
 @property(nonatomic, assign) CGFloat cellWidth;
 @property(nonatomic, assign) CGFloat cellHeight;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (weak, nonatomic) IBOutlet UILabel *minesCount;
+
+@property(nonatomic, strong) UIImage* mineImage;
+@property(nonatomic, strong) UIImage* flagImage;
 
 
 @end
@@ -44,10 +48,17 @@
         
         _cellHeight = 30;
         _collectionViewHeightConstraint.constant = _cellHeight* self.sweeperManager.getNumberOfRows;
+        
+        [self.minesCount setText:[NSString stringWithFormat:@"%02d",(_sweeperManager.getNumberOfMines - _sweeperManager.getNumberOfFlagedCells)]];
     }];
     
     [self.segmentControl setSelectedSegmentIndex:1];
     [self.segmentControl addTarget:self action:@selector(onClickSegmentControl:) forControlEvents:UIControlEventValueChanged];
+    
+    self.flagImage = [UIImage imageNamed:@"flag"];
+    
+    
+    
 }
 
 - (IBAction)onClickSegmentControl:(id)sender {
@@ -77,7 +88,8 @@
             
             _cellHeight = 30;
             _collectionViewHeightConstraint.constant = _cellHeight* self.sweeperManager.getNumberOfRows;
-            
+            [self.minesCount setText:[NSString stringWithFormat:@"%2d",[_sweeperManager getNumberOfMines]]];
+
             [_collectionView reloadData];
         }];
         
@@ -123,6 +135,9 @@
     [cell.collectionButton setTitle:@"" forState:UIControlStateNormal];
     [cell.collectionButton setImage:nil forState:UIControlStateNormal];
     if (!cellVal.isOpened) {
+        if (cellVal.isFlagged) {
+            [cell.collectionButton setBackgroundImage:self.flagImage forState:UIControlStateNormal];
+        }
         [cell.collectionButton setBackgroundColor:[UIColor grayColor]];
         [cell.collectionButton setEnabled:YES];
     }else{
@@ -180,6 +195,21 @@
     return self.sweeperManager.getNumberOfColumns;
 }
 
+-(void)onCollectionViewLongPress:(NSInteger)rowNum Column:(NSInteger)colNum{
+    
+    NSArray* row = [_sweeperCells objectAtIndex:rowNum];
+    
+    MineSweeperCell* cellValue = [row objectAtIndex:colNum];
+    
+    
+    [self.sweeperManager flagCellWithRow:rowNum Column:colNum flagState:!cellValue.isFlagged];
+    [self.minesCount setText:[NSString stringWithFormat:@"%02d",(_sweeperManager.getNumberOfMines - _sweeperManager.getNumberOfFlagedCells)]];
+    
+    NSIndexPath* indPath = [NSIndexPath indexPathForRow:colNum inSection:rowNum];
+    
+    [self.collectionView reloadItemsAtIndexPaths:@[indPath]];
+
+}
 
 -(void) onCollectionViewSelected:(NSInteger)rowNum Column:(NSInteger)colNum{
     
@@ -213,12 +243,14 @@
         
         NSArray* row = [self.sweeperCells objectAtIndex:rowNum];
         MineSweeperCellImpl* cellVal = [row objectAtIndex:colNum];
-        
-        [cellVal setOpenState:YES];
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:colNum inSection:rowNum];
-        [indArr addObject:indexPath];
+        if (!cellVal.isOpened) {
+            [cellVal setOpenState:YES];
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:colNum inSection:rowNum];
+            [indArr addObject:indexPath];
+        }
         
     }
+    //[self.collectionView reloadData];
     [self.collectionView performBatchUpdates:^{
         [self.collectionView reloadItemsAtIndexPaths:indArr];
     } completion:nil];

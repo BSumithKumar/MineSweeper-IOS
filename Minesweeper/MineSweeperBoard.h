@@ -23,12 +23,14 @@ static const NSInteger CELL_WITH_EMPTY = 0;
 
 -(NSInteger) getNumberOfRows;
 -(NSInteger) getNumberOfColumns;
+-(NSInteger) getNumberOfMines;
+-(NSInteger) getNumberOfFlags;
 
 -(NSArray*) getBoardCells;
 
 -(MineSweeperCell*) getCellValue : (NSInteger) aCellRow Column : (NSInteger) aColumn;
 
 -(NSArray*) getNeighbourCellsToReveal : (NSInteger) aCellRow column: (NSInteger) aCellCol;
-
+-(void) flagCellWithRow: (NSInteger) aCellRow Column: (NSInteger) aCellCol  flagState:(BOOL) aState;
 
 @end

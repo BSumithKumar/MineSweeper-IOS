@@ -23,6 +23,7 @@ static const NSInteger KDEFAULT_NUM_MINES = 5;
 @property(nonatomic, assign) NSInteger numMinesPlaced;
 @property(nonatomic, strong) NSArray* cells;
 @property(nonatomic, strong) NSArray* cellIndexWithMines;
+@property(nonatomic, assign) NSInteger numFlags;
 
 @end
 
@@ -110,6 +111,14 @@ static const NSInteger KDEFAULT_NUM_MINES = 5;
 
 -(NSArray*) getBoardCells{
     return self.cells;
+}
+
+-(NSInteger) getNumberOfMines{
+    return _numMinesPlaced;
+}
+
+-(NSInteger) getNumberOfFlags{
+    return _numFlags;
 }
 
 
@@ -242,6 +251,19 @@ static const NSInteger KDEFAULT_NUM_MINES = 5;
         }
     }
 
+    
+}
+
+-(void) flagCellWithRow: (NSInteger) aCellRow Column: (NSInteger) aCellCol  flagState:(BOOL) aState{
+    
+    MineSweeperCellImpl * cellVal =  [self getCellValue:aCellRow Column:aCellCol];
+    if (cellVal.flagState) {
+        _numFlags --;
+    }else{
+        _numFlags ++;
+    }
+    
+    [cellVal setFlagState:aState];
     
 }
 

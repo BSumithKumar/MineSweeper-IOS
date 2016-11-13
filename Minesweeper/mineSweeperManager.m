@@ -133,6 +133,11 @@ withCompletionCallback: (void (^)(Boolean aSuccess, NSArray* aBoardCells)) aComp
     return;
 }
 
+-(void) flagCellWithRow : (NSInteger) aCellRow Column : (NSInteger) aCellCol flagState:(BOOL) aState{
+    if (self.msBoard) {
+        [self.msBoard flagCellWithRow:aCellRow Column:aCellCol flagState:aState];
+    }
+}
 
 
 // get the number of rows
@@ -145,6 +150,13 @@ withCompletionCallback: (void (^)(Boolean aSuccess, NSArray* aBoardCells)) aComp
     return [self.msBoard getNumberOfColumns];
 }
 
+-(NSInteger) getNumberOfMines{
+    return [self.msBoard getNumberOfMines];
+}
+// returns the number of flags
+-(NSInteger) getNumberOfFlagedCells{
+    return [self.msBoard getNumberOfFlags];
+}
 
 
 @end

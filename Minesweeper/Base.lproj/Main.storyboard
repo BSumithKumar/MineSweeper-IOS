@@ -42,9 +42,6 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2d-XU-R6B">
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
-                                                    <connections>
-                                                        <action selector="onCellSelect:" destination="BUq-Wv-zv8" eventType="touchUpInside" id="Eq3-He-dCi"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -70,6 +67,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50E-A1-Xof">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="0w8-9o-6CN"/>
+                                    <constraint firstAttribute="height" constant="21" id="hqX-93-3Nr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pxn-QT-we9">
                                 <segments>
                                     <segment title="Small"/>
@@ -83,10 +89,12 @@
                             <constraint firstItem="pxn-QT-we9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="3o1-d9-qBf"/>
                             <constraint firstItem="5Iw-bS-Ia8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4rl-t5-kHn"/>
                             <constraint firstItem="qxM-ZU-Ivc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="DYq-Ip-bfB"/>
+                            <constraint firstItem="5Iw-bS-Ia8" firstAttribute="top" secondItem="50E-A1-Xof" secondAttribute="bottom" constant="8" id="Gog-5B-rLj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pxn-QT-we9" secondAttribute="trailing" constant="30" id="HU3-zk-bKo"/>
                             <constraint firstItem="qxM-ZU-Ivc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RWz-eQ-c1N"/>
                             <constraint firstItem="pxn-QT-we9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="dYB-xi-P1o"/>
                             <constraint firstItem="5Iw-bS-Ia8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kGo-vA-Jaz"/>
+                            <constraint firstItem="50E-A1-Xof" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="mNV-sD-tVH"/>
                             <constraint firstItem="qxM-ZU-Ivc" firstAttribute="top" secondItem="5Iw-bS-Ia8" secondAttribute="bottom" constant="8" id="ooa-nQ-9h6"/>
                         </constraints>
                     </view>
@@ -94,6 +102,7 @@
                         <outlet property="collectionView" destination="5Iw-bS-Ia8" id="6H4-1T-Y0X"/>
                         <outlet property="collectionViewHeightConstraint" destination="Tol-bs-UKW" id="nYb-gh-q8P"/>
                         <outlet property="collectionViewWidthConstraint" destination="ELU-qZ-FJH" id="4ha-bO-aSY"/>
+                        <outlet property="minesCount" destination="50E-A1-Xof" id="CPK-su-LJS"/>
                         <outlet property="segmentControl" destination="pxn-QT-we9" id="qPD-J9-m97"/>
                     </connections>
                 </viewController>
