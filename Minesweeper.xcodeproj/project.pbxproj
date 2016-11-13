@@ -16,6 +16,11 @@
 		F11140381DD5CC2800C3F079 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11140361DD5CC2800C3F079 /* LaunchScreen.storyboard */; };
 		F11140431DD5CC2900C3F079 /* MinesweeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F11140421DD5CC2900C3F079 /* MinesweeperTests.m */; };
 		F111404E1DD5CC2900C3F079 /* MinesweeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F111404D1DD5CC2900C3F079 /* MinesweeperUITests.m */; };
+		F111405D1DD5EAA800C3F079 /* mineSweeperManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F111405C1DD5EAA800C3F079 /* mineSweeperManager.m */; };
+		F11140611DD60C1300C3F079 /* MineSweeperBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F11140601DD60C1300C3F079 /* MineSweeperBoard.m */; };
+		F11140671DD6F43500C3F079 /* MineSweeperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F11140661DD6F43500C3F079 /* MineSweeperCell.m */; };
+		F111406A1DD6FAC400C3F079 /* MineSweeperCellImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = F11140691DD6FAC400C3F079 /* MineSweeperCellImpl.m */; };
+		F14F22181DD74C28006A5C16 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F14F22171DD74C28006A5C16 /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,16 @@
 		F11140491DD5CC2900C3F079 /* MinesweeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinesweeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F111404D1DD5CC2900C3F079 /* MinesweeperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinesweeperUITests.m; sourceTree = "<group>"; };
 		F111404F1DD5CC2900C3F079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F111405B1DD5EAA800C3F079 /* mineSweeperManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mineSweeperManager.h; sourceTree = "<group>"; };
+		F111405C1DD5EAA800C3F079 /* mineSweeperManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mineSweeperManager.m; sourceTree = "<group>"; };
+		F111405F1DD60C1300C3F079 /* MineSweeperBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperBoard.h; sourceTree = "<group>"; };
+		F11140601DD60C1300C3F079 /* MineSweeperBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSweeperBoard.m; sourceTree = "<group>"; };
+		F11140651DD6F43500C3F079 /* MineSweeperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperCell.h; sourceTree = "<group>"; };
+		F11140661DD6F43500C3F079 /* MineSweeperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSweeperCell.m; sourceTree = "<group>"; };
+		F11140681DD6FAC400C3F079 /* MineSweeperCellImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineSweeperCellImpl.h; sourceTree = "<group>"; };
+		F11140691DD6FAC400C3F079 /* MineSweeperCellImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineSweeperCellImpl.m; sourceTree = "<group>"; };
+		F14F22161DD74C28006A5C16 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		F14F22171DD74C28006A5C16 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +118,11 @@
 		F11140241DD5CC2800C3F079 /* Minesweeper */ = {
 			isa = PBXGroup;
 			children = (
+				F111405E1DD60BCE00C3F079 /* Manager */,
+				F14F221C1DD83C8B006A5C16 /* controller */,
+				F14F221D1DD83C97006A5C16 /* view */,
 				F11140281DD5CC2800C3F079 /* AppDelegate.h */,
 				F11140291DD5CC2800C3F079 /* AppDelegate.m */,
-				F111402B1DD5CC2800C3F079 /* ViewController.h */,
-				F111402C1DD5CC2800C3F079 /* ViewController.m */,
 				F111402E1DD5CC2800C3F079 /* Main.storyboard */,
 				F11140341DD5CC2800C3F079 /* Assets.xcassets */,
 				F11140361DD5CC2800C3F079 /* LaunchScreen.storyboard */,
@@ -141,6 +157,63 @@
 				F111404F1DD5CC2900C3F079 /* Info.plist */,
 			);
 			path = MinesweeperUITests;
+			sourceTree = "<group>";
+		};
+		F111405E1DD60BCE00C3F079 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F14F221A1DD83C66006A5C16 /* public */,
+				F14F221B1DD83C76006A5C16 /* private */,
+				F14F22191DD83C46006A5C16 /* Model */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		F14F22191DD83C46006A5C16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F11140651DD6F43500C3F079 /* MineSweeperCell.h */,
+				F11140661DD6F43500C3F079 /* MineSweeperCell.m */,
+				F11140681DD6FAC400C3F079 /* MineSweeperCellImpl.h */,
+				F11140691DD6FAC400C3F079 /* MineSweeperCellImpl.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F14F221A1DD83C66006A5C16 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				F111405B1DD5EAA800C3F079 /* mineSweeperManager.h */,
+				F111405C1DD5EAA800C3F079 /* mineSweeperManager.m */,
+			);
+			name = public;
+			sourceTree = "<group>";
+		};
+		F14F221B1DD83C76006A5C16 /* private */ = {
+			isa = PBXGroup;
+			children = (
+				F111405F1DD60C1300C3F079 /* MineSweeperBoard.h */,
+				F11140601DD60C1300C3F079 /* MineSweeperBoard.m */,
+			);
+			name = private;
+			sourceTree = "<group>";
+		};
+		F14F221C1DD83C8B006A5C16 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				F111402B1DD5CC2800C3F079 /* ViewController.h */,
+				F111402C1DD5CC2800C3F079 /* ViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		F14F221D1DD83C97006A5C16 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F14F22161DD74C28006A5C16 /* CollectionViewCell.h */,
+				F14F22171DD74C28006A5C16 /* CollectionViewCell.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,8 +349,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11140671DD6F43500C3F079 /* MineSweeperCell.m in Sources */,
+				F111406A1DD6FAC400C3F079 /* MineSweeperCellImpl.m in Sources */,
 				F11140331DD5CC2800C3F079 /* Minesweeper.xcdatamodeld in Sources */,
+				F11140611DD60C1300C3F079 /* MineSweeperBoard.m in Sources */,
 				F111402D1DD5CC2800C3F079 /* ViewController.m in Sources */,
+				F111405D1DD5EAA800C3F079 /* mineSweeperManager.m in Sources */,
+				F14F22181DD74C28006A5C16 /* CollectionViewCell.m in Sources */,
 				F111402A1DD5CC2800C3F079 /* AppDelegate.m in Sources */,
 				F11140271DD5CC2800C3F079 /* main.m in Sources */,
 			);
@@ -509,6 +587,7 @@
 				F11140541DD5CC2900C3F079 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F11140551DD5CC2900C3F079 /* Build configuration list for PBXNativeTarget "MinesweeperTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +596,7 @@
 				F11140571DD5CC2900C3F079 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F11140581DD5CC2900C3F079 /* Build configuration list for PBXNativeTarget "MinesweeperUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +605,7 @@
 				F111405A1DD5CC2900C3F079 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
